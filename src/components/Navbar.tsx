@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   const isSuper = activeUser.role === 'superadmin';
-  const brandName = activeGym?.brandName || activeGym?.name || activeUser.gymName || 'TEMPLARIOS GYM';
+  const brandName = activeGym?.brandName || activeGym?.name || activeUser.gymName || 'GYM MANAGER';
   const logoUrl = activeGym?.logoUrl;
   const primaryColor = activeGym?.primaryColor || '#2563eb';
 

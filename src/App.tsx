@@ -228,7 +228,7 @@ export default function App() {
     gyms.find((g) => g.id === currentGymId) || {
       id: currentGymId,
       name: activeUser.gymName || 'Gimnasio Fitness Zone',
-      brandName: activeUser.gymName || 'TEMPLARIOS GYM',
+      brandName: activeUser.gymName || 'GYM MANAGER',
       ownerName: 'Administrador',
       email: 'contacto@gym.com',
       phone: '+57 300 000 0000',
@@ -249,7 +249,7 @@ export default function App() {
           <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-600 text-white shadow-xl shadow-blue-500/20 mb-3 border border-blue-400/30">
             <Dumbbell className="w-7 h-7" />
           </div>
-          <h1 className="text-2xl font-black tracking-tight text-white">TEMPLARIOS GYM</h1>
+          <h1 className="text-2xl font-black tracking-tight text-white">GYM MANAGER</h1>
           <p className="text-xs text-slate-400 font-medium">Plataforma de Gestión y Control</p>
         </div>
 

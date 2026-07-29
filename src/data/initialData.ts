@@ -4,7 +4,7 @@ export const INITIAL_GYMS: Gym[] = [
   {
     id: 'gym_01',
     name: 'Gimnasio Fitness Zone',
-    brandName: 'TEMPLARIOS GYM',
+    brandName: 'GYM MANAGER',
     ownerName: 'Carlos Mendoza',
     email: 'contacto@fitnesszone.com',
     phone: '+573001234567',

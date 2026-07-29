@@ -24,7 +24,7 @@ export const PerfilGimnasioModal: React.FC<PerfilGimnasioModalProps> = ({
   gym,
   onSaveGym,
 }) => {
-  const [brandName, setBrandName] = useState(gym.brandName || gym.name || 'TEMPLARIOS GYM');
+  const [brandName, setBrandName] = useState(gym.brandName || gym.name || 'GYM MANAGER');
   const [ownerName, setOwnerName] = useState(gym.ownerName || '');
   const [email, setEmail] = useState(gym.email || '');
   const [phone, setPhone] = useState(gym.phone || '');

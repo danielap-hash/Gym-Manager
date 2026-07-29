@@ -5,7 +5,7 @@ import { EditarPerfilSuperAdminModal } from './EditarPerfilSuperAdminModal';
 import { 
   Building2, Plus, Search, Shield, DollarSign, CheckCircle2, 
   AlertTriangle, Key, Edit2, Eye, Calendar, UserPlus, Phone, 
-  Mail, Lock, RefreshCw, X, CreditCard, ChevronRight, UserCog, LogOut
+  Mail, Lock, RefreshCw, X, CreditCard, ChevronRight, UserCog, LogOut, Trash2
 } from 'lucide-react';
 
 interface SuperAdminViewProps {
@@ -36,6 +36,7 @@ export const SuperAdminView: React.FC<SuperAdminViewProps> = ({
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingGym, setEditingGym] = useState<Gym | null>(null);
   const [paymentGym, setPaymentGym] = useState<Gym | null>(null);
+  const [deletingGym, setDeletingGym] = useState<Gym | null>(null);
 
   // New Gym Form State
   const [newGymName, setNewGymName] = useState('');
@@ -169,6 +170,12 @@ export const SuperAdminView: React.FC<SuperAdminViewProps> = ({
       return g;
     });
     onUpdateGyms(updated);
+  };
+
+  const handleDeleteGym = (gymId: string) => {
+    const updated = gyms.filter((g) => g.id !== gymId);
+    onUpdateGyms(updated);
+    setDeletingGym(null);
   };
 
   const handleSaveProfile = (updatedProfile: SuperAdminProfile) => {
@@ -464,6 +471,14 @@ export const SuperAdminView: React.FC<SuperAdminViewProps> = ({
                   >
                     {isSuspended ? <CheckCircle2 className="w-4 h-4" /> : <AlertTriangle className="w-4 h-4" />}
                   </button>
+
+                  <button
+                    onClick={() => setDeletingGym(gym)}
+                    className="p-2 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs transition"
+                    title="Eliminar Gimnasio"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             );
@@ -729,6 +744,62 @@ export const SuperAdminView: React.FC<SuperAdminViewProps> = ({
         profile={saProfile}
         onSaveProfile={handleSaveProfile}
       />
+
+      {/* Modal Confirmar Eliminar Gimnasio */}
+      {deletingGym && (
+        <div className="fixed inset-0 bg-slate-950/70 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl border border-slate-100 animate-in fade-in zoom-in-95 duration-150">
+            <div className="bg-rose-600 p-4 text-white flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Trash2 className="w-5 h-5 text-rose-100" />
+                <h3 className="font-bold text-base">Eliminar Gimnasio</h3>
+              </div>
+              <button
+                onClick={() => setDeletingGym(null)}
+                className="p-1.5 rounded-full hover:bg-rose-700 text-rose-100 hover:text-white"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="p-5 space-y-4 text-xs text-slate-700">
+              <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-bold text-rose-900 text-xs">¿Está seguro de eliminar este gimnasio?</p>
+                  <p className="text-rose-700 text-[11px] mt-1 leading-relaxed">
+                    Esta acción eliminará permanentemente al gimnasio <strong className="font-bold">{deletingGym.name}</strong> ({deletingGym.username}) de la lista de sedes registradas.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1 font-mono text-[11px]">
+                <div><span className="text-slate-400">Gimnasio:</span> <span className="font-bold text-slate-800">{deletingGym.name}</span></div>
+                <div><span className="text-slate-400">Usuario:</span> <span className="font-bold text-slate-800">{deletingGym.username}</span></div>
+                <div><span className="text-slate-400">Propietario:</span> <span className="font-bold text-slate-800">{deletingGym.ownerName}</span></div>
+              </div>
+
+              <div className="flex items-center gap-2 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setDeletingGym(null)}
+                  className="flex-1 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleDeleteGym(deletingGym.id)}
+                  className="flex-1 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl shadow-md transition flex items-center justify-center gap-1.5"
+                >
+                  <Trash2 className="w-4 h-4" />
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
