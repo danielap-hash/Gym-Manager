@@ -1,0 +1,6 @@
+{
+  "name": "GymControl - Gestión de Gimnasios",
+  "description": "Sistema simple de gestión de clientes para gimnasios con panel de administración y súper administración.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
