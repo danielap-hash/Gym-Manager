@@ -28,7 +28,7 @@ import { EstadoClientes } from './components/GymAdmin/EstadoClientes';
 import { BalanceGastos } from './components/GymAdmin/BalanceGastos';
 import { AjustesMensajes } from './components/GymAdmin/AjustesMensajes';
 import { AsistenteIAModal } from './components/AI/AsistenteIAModal';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Dumbbell } from 'lucide-react';
 
 export type ScreenName =
   | 'principal'
@@ -241,6 +241,29 @@ export default function App() {
       primaryColor: '#2563eb',
       secondaryColor: '#1d4ed8',
     };
+
+  if (!activeUser.username) {
+    return (
+      <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-slate-950' : 'bg-slate-900'} text-slate-100 flex flex-col items-center justify-center p-4 relative font-sans antialiased bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black`}>
+        <div className="w-full max-w-sm mx-auto mb-4 text-center animate-in fade-in slide-in-from-top-4 duration-200">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-600 text-white shadow-xl shadow-blue-500/20 mb-3 border border-blue-400/30">
+            <Dumbbell className="w-7 h-7" />
+          </div>
+          <h1 className="text-2xl font-black tracking-tight text-white">TEMPLARIOS GYM</h1>
+          <p className="text-xs text-slate-400 font-medium">Plataforma de Gestión y Control</p>
+        </div>
+
+        <ProfileSwitchModal
+          isOpen={true}
+          isFullScreen={true}
+          onClose={() => {}}
+          gyms={gyms}
+          activeUser={activeUser}
+          onSelectUser={handleSelectUser}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen ${theme === 'dark' ? 'dark bg-slate-950 text-slate-100' : 'bg-slate-100 text-slate-900'} font-sans antialiased selection:bg-emerald-500 selection:text-white relative transition-colors`}>
