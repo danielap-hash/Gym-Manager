@@ -101,7 +101,7 @@ export const ImprimirEstadoCuentaModal: React.FC<ImprimirEstadoCuentaModalProps>
               )}
               <div>
                 <h1 className="text-xl font-bold tracking-tight text-slate-900">
-                  {gym.brandName || gym.name || 'GYM MANAGER'}
+                  {gym.brandName || gym.name || 'GymOS'}
                 </h1>
                 <p className="text-xs text-slate-500">
                   Contacto: {gym.phone || 'S/D'} | {gym.email || 'S/D'}

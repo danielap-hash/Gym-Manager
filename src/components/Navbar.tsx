@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onLogout,
 }) => {
   const isSuper = activeUser.role === 'superadmin';
-  const brandName = activeGym?.brandName || activeGym?.name || activeUser.gymName || 'GYM MANAGER';
+  const brandName = activeGym?.brandName || activeGym?.name || activeUser.gymName || 'GymOS';
   const logoUrl = activeGym?.logoUrl;
   const primaryColor = activeGym?.primaryColor || '#2563eb';
 
@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {onOpenAiAssistant && !isSuper && (
             <button
               onClick={onOpenAiAssistant}
-              title="Asistente IA GymSaaS"
+              title="Asistente IA GymOS"
               className="p-1.5 rounded-lg bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-700/60 text-amber-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/50 transition-colors flex items-center gap-1 font-bold text-xs"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 animate-pulse" />

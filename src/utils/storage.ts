@@ -80,7 +80,7 @@ export const getActiveUser = (): ActiveUser => {
     role: 'gym_admin',
     gymId: 'gym_01',
     username: 'admin_fit',
-    gymName: 'Gimnasio Fitness Zone'
+    gymName: 'GymOS'
   };
 };
 

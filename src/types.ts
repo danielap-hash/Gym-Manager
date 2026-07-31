@@ -52,7 +52,7 @@ export interface Client {
   medicalAlert: string;
   emergencyContact: string;
   billingModel?: 'Recurrente' | 'Único';
-  paymentFrequency: 'Mensual' | 'Quincenal' | 'Anual';
+  paymentFrequency: 'Semanal' | 'Quincenal' | 'Mensual' | 'Anual';
   category: string;
   status: 'al_dia' | 'proximo_vencer' | 'atrasado' | 'parcial';
   paymentHistory: ClientPayment[];

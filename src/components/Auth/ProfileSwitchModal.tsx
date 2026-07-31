@@ -4,7 +4,7 @@ import { getSuperAdminProfile } from '../../utils/storage';
 import { 
   Dumbbell, X, Lock, KeyRound, Eye, EyeOff, LogOut, 
   BookOpen, Users, CreditCard, MessageSquare, BarChart3, 
-  Printer, ShieldCheck, ChevronRight, Sparkles, Database
+  Printer, ShieldCheck, ChevronRight, Sparkles, Database, PhoneCall
 } from 'lucide-react';
 
 interface ProfileSwitchModalProps {
@@ -247,81 +247,85 @@ export const ProfileSwitchModal: React.FC<ProfileSwitchModalProps> = ({
 
           <div className="p-4 overflow-y-auto space-y-4 text-xs text-slate-700 leading-relaxed flex-1">
             <div className="bg-blue-50 border border-blue-200 p-3 rounded-xl">
-              <p className="font-bold text-blue-900 text-xs mb-1">🏋️ Bienvenido al Sistema de Gestión</p>
+              <p className="font-bold text-blue-900 text-xs mb-1">🏋️ Bienvenido a GymOS</p>
               <p className="text-blue-800 text-[11px]">
-                Esta herramienta te permite administrar socios, cobros, asistencia y notificaciones de forma simple y eficiente.
+                Plataforma integral para administrar socios, modalidades de pago, llamadas de emergencia SOS, asistencias, finanzas y asistencia con Inteligencia Artificial.
               </p>
             </div>
 
             {/* Feature 1 */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
               <div className="flex items-center gap-2 font-bold text-slate-900 text-xs">
                 <Users className="w-4 h-4 text-blue-600" />
-                <span>1. Gestión y Registro de Alumnos</span>
+                <span>1. Registro y Control de Socios</span>
               </div>
               <ul className="list-disc list-inside text-[11px] text-slate-600 space-y-1 pl-1">
-                <li><strong>Inscripción Express:</strong> Registra nombre, DNI, teléfono, foto, plan de pago y fecha de cobro.</li>
-                <li><strong>Control por Semáforo:</strong> Visualiza el estado inmediato del socio: <span className="text-emerald-700 font-bold">Activo</span>, <span className="text-amber-700 font-bold">Por Vencer</span> (próximos 5 días) o <span className="text-rose-700 font-bold">Vencido</span>.</li>
-                <li><strong>Asistencias:</strong> Marca el ingreso diario del alumno con un solo toque.</li>
+                <li><strong>Ficha Completa:</strong> Nombre, DNI, teléfono, foto, alertas médicas y contacto de emergencia.</li>
+                <li><strong>Llamada de Emergencia SOS:</strong> Botón de llamada directa (<PhoneCall className="w-3 h-3 inline text-rose-600" />) para comunicarse al instante con el contacto del alumno ante cualquier eventualidad.</li>
+                <li><strong>Control por Semáforo:</strong> Indicador visual inmediato de estado: <span className="text-emerald-700 font-bold">Al Día</span>, <span className="text-amber-700 font-bold">Próximo a Vencer</span> (5 días) y <span className="text-rose-700 font-bold">Atrasado/Vencido</span>.</li>
+                <li><strong>Asistencias Diarias:</strong> Registro rápido de ingreso del socio con un solo toque.</li>
               </ul>
             </div>
 
             {/* Feature 2 */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
               <div className="flex items-center gap-2 font-bold text-slate-900 text-xs">
                 <CreditCard className="w-4 h-4 text-emerald-600" />
-                <span>2. Cobro de Cuotas y Renovación</span>
+                <span>2. Modalidades de Pago y Cobro</span>
               </div>
               <ul className="list-disc list-inside text-[11px] text-slate-600 space-y-1 pl-1">
-                <li><strong>Renovación en 1 Clic:</strong> Renueva la mensualidad al instante seleccionando efectivo, transferencia o tarjeta.</li>
-                <li><strong>Avisos de Cobro:</strong> Genera recibos digitales claros con fechas de inicio y vencimiento.</li>
+                <li><strong>Frecuencias de Cobro:</strong> Opciones flexibles de membresía: <strong>Semanal</strong>, <strong>Quincenal</strong>, <strong>Mensual</strong> y <strong>Anual</strong>.</li>
+                <li><strong>Renovación Express:</strong> Registra cobros al instante seleccionando efectivo, transferencia o tarjeta.</li>
+                <li><strong>Comprobantes e Impresión:</strong> Emisión de recibos de pago y tickets optimizados para impresora térmica o descarga en PDF.</li>
               </ul>
             </div>
 
             {/* Feature 3 */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
               <div className="flex items-center gap-2 font-bold text-slate-900 text-xs">
-                <MessageSquare className="w-4 h-4 text-green-600" />
-                <span>3. Notificaciones por WhatsApp</span>
+                <Sparkles className="w-4 h-4 text-amber-500" />
+                <span>3. Asistente de Inteligencia Artificial (GymOS AI)</span>
               </div>
               <ul className="list-disc list-inside text-[11px] text-slate-600 space-y-1 pl-1">
-                <li><strong>Avisos Directos:</strong> Envía recordatorios de cuota vencida o próxima a vencer directamente a WhatsApp.</li>
-                <li><strong>Plantillas Personalizables:</strong> Modifica los mensajes automáticos agregando datos del gimnasio.</li>
+                <li><strong>Diseño de Rutinas:</strong> Generación automática de planes de entrenamiento por días u objetivos (hipertrofia, pérdida de grasa, fuerza).</li>
+                <li><strong>Asesoría Técnica y Nutrición:</strong> Consultas sobre musculación, suplementación y biomecánica deportiva.</li>
+                <li><strong>Generador de Textos:</strong> Redacción de mensajes de cobro amigables y campañas promocionales para redes sociales.</li>
               </ul>
             </div>
 
             {/* Feature 4 */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
               <div className="flex items-center gap-2 font-bold text-slate-900 text-xs">
-                <BarChart3 className="w-4 h-4 text-purple-600" />
-                <span>4. Balance y Control de Gastos</span>
+                <MessageSquare className="w-4 h-4 text-green-600" />
+                <span>4. Notificaciones por WhatsApp</span>
               </div>
               <ul className="list-disc list-inside text-[11px] text-slate-600 space-y-1 pl-1">
-                <li><strong>Registro de Gastos:</strong> Anota salidas operativas (mantenimiento, compras, servicios).</li>
-                <li><strong>Resumen Financiero:</strong> Revisa el balance mensual de ingresos vs egresos.</li>
+                <li><strong>Envío con 1 Clic:</strong> Notifica cuotas vencidas o cobros pendientes directamente a WhatsApp.</li>
+                <li><strong>Plantillas Editables:</strong> Personaliza los textos automáticos con etiquetas de nombre, monto y vencimiento.</li>
               </ul>
             </div>
 
             {/* Feature 5 */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
               <div className="flex items-center gap-2 font-bold text-slate-900 text-xs">
-                <Printer className="w-4 h-4 text-amber-600" />
-                <span>5. Impresión de Recibos y Tickets</span>
+                <BarChart3 className="w-4 h-4 text-purple-600" />
+                <span>5. Balance Financiero y Gastos</span>
               </div>
               <ul className="list-disc list-inside text-[11px] text-slate-600 space-y-1 pl-1">
-                <li><strong>Impresión Térmica / PDF:</strong> Imprime el comprobante físico para el alumno con el logo de tu gimnasio.</li>
+                <li><strong>Control de Salidas:</strong> Registra egresos operativos (compras de insumos, servicios, mantenimiento).</li>
+                <li><strong>Balance Neto:</strong> Visualización gráfica en tiempo real de ingresos acumulados vs. gastos totales.</li>
               </ul>
             </div>
 
             {/* Feature 6 */}
-            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
               <div className="flex items-center gap-2 font-bold text-slate-900 text-xs">
                 <Database className="w-4 h-4 text-indigo-600" />
-                <span>6. Respaldos y Personalización</span>
+                <span>6. Respaldos y Configuración de Sede</span>
               </div>
               <ul className="list-disc list-inside text-[11px] text-slate-600 space-y-1 pl-1">
-                <li><strong>Copias de Seguridad:</strong> Exporta e importa tus datos en formato seguro para prevenir pérdidas.</li>
-                <li><strong>Asistente IA:</strong> Consulta consejos de gestión y creación de rutinas directamente en la app.</li>
+                <li><strong>Copias de Seguridad:</strong> Exporta e importa la información en formato JSON para resguardo total.</li>
+                <li><strong>Personalización de Marca:</strong> Modifica el logo, nombre comercial y colores representativos de tu gimnasio.</li>
               </ul>
             </div>
           </div>

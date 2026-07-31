@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Client } from '../../types';
 import { 
   ArrowLeft, User, Calendar, DollarSign, Mail, Phone, 
-  MapPin, AlertTriangle, ShieldAlert, Check, RefreshCw, CreditCard 
+  MapPin, AlertTriangle, ShieldAlert, Check, RefreshCw, CreditCard, PhoneCall 
 } from 'lucide-react';
 
 interface RegistrarClienteProps {
@@ -289,18 +289,33 @@ export const RegistrarCliente: React.FC<RegistrarClienteProps> = ({
 
           {/* Contacto Emergencia */}
           <div>
-            <label className="block text-slate-700 font-bold mb-1">Contacto Emergencia</label>
-            <div className="relative">
-              <span className="text-[10px] font-black text-rose-600 bg-rose-100 px-1.5 py-0.5 rounded absolute left-3 top-3">
-                SOS
-              </span>
-              <input
-                type="text"
-                value={emergencyContact}
-                onChange={(e) => setEmergencyContact(e.target.value)}
-                placeholder="+01 123 456 789"
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400"
-              />
+            <label className="block text-slate-700 font-bold mb-1 flex items-center justify-between">
+              <span>Contacto de Emergencia</span>
+              {emergencyContact && emergencyContact.trim().length > 3 && (
+                <span className="text-[10px] text-rose-600 font-bold">Llamada rápida SOS</span>
+              )}
+            </label>
+            <div className="flex items-center gap-2">
+              <div className="relative flex-1">
+                <PhoneCall className="w-4 h-4 text-rose-500 absolute left-3.5 top-3" />
+                <input
+                  type="text"
+                  value={emergencyContact}
+                  onChange={(e) => setEmergencyContact(e.target.value)}
+                  placeholder="Ej: +57 300 123 4567 (Mamá/Familiar)"
+                  className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-rose-100 focus:border-rose-400"
+                />
+              </div>
+              {emergencyContact && emergencyContact.trim().length > 3 && (
+                <a
+                  href={`tel:${emergencyContact.replace(/[^0-9+]/g, '')}`}
+                  className="px-3 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs rounded-lg flex items-center gap-1.5 shrink-0 transition shadow-xs"
+                  title="Realizar llamada de emergencia"
+                >
+                  <PhoneCall className="w-3.5 h-3.5" />
+                  <span>Llamar SOS</span>
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -333,8 +348,9 @@ export const RegistrarCliente: React.FC<RegistrarClienteProps> = ({
                 onChange={(e) => setPaymentFrequency(e.target.value as any)}
                 className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400"
               >
-                <option value="Mensual">Mensual</option>
+                <option value="Semanal">Semanal</option>
                 <option value="Quincenal">Quincenal</option>
+                <option value="Mensual">Mensual</option>
                 <option value="Anual">Anual</option>
               </select>
             </div>

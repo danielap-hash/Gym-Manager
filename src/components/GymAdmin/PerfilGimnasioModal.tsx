@@ -24,7 +24,7 @@ export const PerfilGimnasioModal: React.FC<PerfilGimnasioModalProps> = ({
   gym,
   onSaveGym,
 }) => {
-  const [brandName, setBrandName] = useState(gym.brandName || gym.name || 'GYM MANAGER');
+  const [brandName, setBrandName] = useState(gym.brandName || gym.name || 'GymOS');
   const [ownerName, setOwnerName] = useState(gym.ownerName || '');
   const [email, setEmail] = useState(gym.email || '');
   const [phone, setPhone] = useState(gym.phone || '');
@@ -148,7 +148,7 @@ export const PerfilGimnasioModal: React.FC<PerfilGimnasioModalProps> = ({
                   required
                   value={brandName}
                   onChange={(e) => setBrandName(e.target.value)}
-                  placeholder="ej: TEMPLARIOS GYM"
+                  placeholder="ej: GymOS Central"
                   className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-400"
                 />
               </div>

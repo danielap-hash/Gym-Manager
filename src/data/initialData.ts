@@ -3,8 +3,8 @@ import { Gym, Client, Expense, WhatsAppConfig } from '../types';
 export const INITIAL_GYMS: Gym[] = [
   {
     id: 'gym_01',
-    name: 'Gimnasio Fitness Zone',
-    brandName: 'GYM MANAGER',
+    name: 'GymOS Central',
+    brandName: 'GymOS',
     ownerName: 'Carlos Mendoza',
     email: 'contacto@fitnesszone.com',
     phone: '+573001234567',

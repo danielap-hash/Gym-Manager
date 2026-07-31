@@ -1,6 +1,6 @@
 {
-  "name": "GYM MANAGER",
-  "description": "Sistema simple de gestión de clientes para gimnasios con panel de administración y súper administración.",
+  "name": "GymOS",
+  "description": "Plataforma de gestión de gimnasios y control de socios con asistente de Inteligencia Artificial.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
